@@ -3,7 +3,7 @@ import React from "react";
 function SpellSearch() {
     return (
         <>
-            <h3>Spel Search</h3>
+            <h3>Spell Search</h3>
         </>
     )
 }
