@@ -27,8 +27,6 @@ function SpellSearch() {
     }
   };
 
-  function onClickHandler() {}
-
   console.log("spells:", spells);
   console.log("returnedSearch:", returnedSearch);
   return (
@@ -51,35 +49,3 @@ function SpellSearch() {
 }
 
 export default SpellSearch;
-
-// const getSpell = () => {
-//     Axios.get(`https://www.dnd5eapi.co/api/spells`).then(
-//         (response)=> {
-//             console.log(response)
-//         }
-//     );
-// };
-
-// const handleSubmit = () => {
-//     const searchQuery = inputSearchRef.current.value
-// }
-
-// async function fetchData(searchQuery) {
-//     try {
-//         const response = await fetch (`https://www.dnd5eapi.co/api/`)
-//     } catch(error) {
-//         console.log(error)
-//     }
-// }
-
-// const search = async val => {
-//     const res = await axios(
-//         `https://www.dnd5eapi.co/api/spells?query=${val}`)
-//     const spells = await res.data.results;
-//     setSpells(spells)
-// }
-
-// const onClickHandler = async e => {
-//     search(e.target.value)
-//     setSpells(e.target.valule)
-// };
