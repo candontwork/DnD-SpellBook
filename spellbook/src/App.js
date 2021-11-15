@@ -1,7 +1,6 @@
 import React from 'react';
 
-
-import SpellSearch from './components/SpellResults';
+import SpellSearch from './components/SpellSearch';
 import DiceData from './components/DiceData';
 import SpellBook from './components/SpellBook';
 
