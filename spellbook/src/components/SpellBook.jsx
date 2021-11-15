@@ -3,7 +3,7 @@ import React from "react";
 function SpellBook() {
     return (
         <>
-            <h3>spell results</h3>
+            <h3>spell book</h3>
         </>
     )
 }

@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from "react";
+import { Link } from "react-router-dom"
 import axios from "axios";
 
 function SpellSearch() {
@@ -7,20 +8,21 @@ function SpellSearch() {
 
   useEffect(() => {
     const abortCont = new AbortController();
-    console.log(`rendering`);
+    // console.log(`rendering`);
 
     return () => {
       abortCont.abort();
     };
   }, []);
 
-    const searchKeyword = async (val) => {
+  const searchKeyword = async (val) => {
     //   console.log(`https://www.dnd5eapi.co/api/spells=${val}`)
     console.log("call api for spells:", spells);
+    
     try {
       const res = await axios(`https://api.open5e.com/spells/?search=${val}`);
       const data = await res.data.results;
-      console.log("apidata:", data);
+      //   console.log("apidata:", data);
       setReturnedSearch(data);
     } catch (error) {
       console.log(error);
@@ -40,9 +42,11 @@ function SpellSearch() {
             setSpells(e.target.value);
           }}
         />
-        <button type="button" onClick={() => searchKeyword(spells)}>
-          Search
-        </button>
+        <Link to = '/SpellResults'>
+            <button type="button" onClick={() => searchKeyword(spells)}>
+            Search
+            </button>
+        </Link>
       </form>
     </>
   );
