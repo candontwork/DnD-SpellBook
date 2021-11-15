@@ -1,9 +1,10 @@
 import React from "react";
 
-function SpellResults(props) {
+function SpellResults() {
+    
     return (
         <>
-
+           <h3>Please display results</h3>
         </>       
     )
 }

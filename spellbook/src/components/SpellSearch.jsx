@@ -1,10 +1,11 @@
 import React, { useState, useEffect } from "react";
-import { Link } from "react-router-dom"
+import { useHistory } from "react-router-dom"
 import axios from "axios";
 
 function SpellSearch() {
   const [spells, setSpells] = useState("");
   const [returnedSearch, setReturnedSearch] = useState("");
+  let history = useHistory(); 
 
   useEffect(() => {
     const abortCont = new AbortController();
@@ -31,6 +32,8 @@ function SpellSearch() {
 
   console.log("spells:", spells);
   console.log("returnedSearch:", returnedSearch);
+
+
   return (
     <>
       <form>
@@ -42,14 +45,34 @@ function SpellSearch() {
             setSpells(e.target.value);
           }}
         />
-        <Link to = '/SpellResults'>
-            <button type="button" onClick={() => searchKeyword(spells)}>
+            <button type="button" onClick={() => {
+              searchKeyword(spells);
+              history.push("/SpellResults")
+            }}>
             Search
             </button>
-        </Link>
       </form>
     </>
   );
 }
 
 export default SpellSearch;
+
+
+// return (
+//   <>
+//     <form onSubmit = {() => history.push("/SpellResults")}>
+//       <input
+//         type="text"
+//         placeholder="spell-name here"
+//         value={spells}
+//         onChange={(e) => {
+//           setSpells(e.target.value);
+//         }}
+//       />
+//           <button type="button" onClick={() => searchKeyword(spells)}>
+//           Search
+//           </button>
+//     </form>
+//   </>
+// );
