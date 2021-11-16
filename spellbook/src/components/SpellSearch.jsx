@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react";
 import { useHistory } from "react-router-dom";
 import axios from "axios";
 
+
 function SpellSearch() {
   const [spells, setSpells] = useState("");
   const [returnedSearch, setReturnedSearch] = useState("");
@@ -24,7 +25,7 @@ function SpellSearch() {
       const res = await axios(`https://api.open5e.com/spells/?search=${val}`);
       const data = await res.data.results;
       console.log("apidata:", data);
-      setReturnedSearch(data);
+      setReturnedSearch(data) 
     } catch (error) {
       console.log(error);
     }

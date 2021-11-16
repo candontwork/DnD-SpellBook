@@ -1,31 +1,43 @@
-import React from 'react';
-import { BrowserRouter as Router, Route, Switch, Link} from "react-router-dom"
+import React, { useState } from 'react';
+import { Route, Switch, Redirect } from "react-router-dom"
 
 import SpellSearch from './components/SpellSearch';
 import DiceData from './components/DiceData';
 import SpellBook from './components/SpellBook';
 import Home from './components/Home';
-import SpellResults from './components/SpellResults'
+import Navbar from './components/NavBar';
+import SpellResults from './components/SpellResults';
 
 function App() {
+
+  const [spellDisplay, setSpellDisplay] = useState('')
+  
+  const data = (returnedSearch) => {
+    setSpellDisplay(returnedSearch)
+  }
+
   return (
     <>
-    <Home />
-    <Route>
-        <SpellSearch />
+      <Navbar />
+      <Switch>
+        <Route exact path='/'>
+          <Home />
+          <SpellSearch/>
+        </Route>
 
-        <section className='right-column'>
-          <div>
-            <SpellBook />
-          </div>
-        </section>
+        <Route path='/SpellResults'>
+          <SpellResults />
+        </Route>
 
-        <section className='bottom-row'>
-          <div>
-            <DiceData />
-          </div>
-        </section>
-      </Route>
+        <Route path='/SpellBook'>
+          <SpellBook />
+        </Route>
+
+        <Route path='/DiceData'>
+          <DiceData />
+        </Route>
+        <Redirect to='/' />
+      </Switch>
     </>
   );
 }
