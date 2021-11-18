@@ -32,10 +32,6 @@ function SpellSearch({setDisplayResult}) {
     }
   };
 
-  // function onClickHandler(e) {
-  //   props.retrieveSpells(returnedSearch)
-  // }
-
   console.log("spells:", spells);
   console.log("returnedSearch:", returnedSearch);
 
@@ -55,8 +51,6 @@ function SpellSearch({setDisplayResult}) {
           type="button"
           onClick={() => {
             searchKeyword(spells);
-          
-            // history.push("/SpellResults");
           }}
         >
           Search
