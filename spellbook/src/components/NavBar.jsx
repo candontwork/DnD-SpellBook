@@ -1,19 +1,18 @@
 import React from 'react';
-import { Link } from "react-router-dom";
+import Nav from "react-bootstrap/Nav"
 
-function Navbar() {
+function NavBar() {
   return (
-  <div>
-    <li>
-      <Link to="/">Home</Link>
-    </li>
-    <li>
-      <Link to="/SpellBook">SpellBook</Link>
-    </li>
-    <li>
-      <Link to="/Dice Data">Dice Data</Link>
-    </li>
-  </div>
+    <>
+  <Nav className="justify-content-center" activeKey="/home">
+    <Nav.Item>
+      <Nav.Link href="/home">Home</Nav.Link>
+    </Nav.Item>
+    <Nav.Item>
+      <Nav.Link href ="/SpellBook" eventKey="link-1">SpellBook</Nav.Link>
+    </Nav.Item>
+  </Nav>
+    </>
   );
 }
-export default Navbar;
+export default NavBar;

@@ -30,16 +30,14 @@ function SpellResults({ showSpells }) {
       });
       return spellFound;
     };
-      if (isSpellExist()) {
-        //pass
-      } else {
-            localStorage.setItem(
-            "MyBooks",
-            JSON.stringify([spellSelected, ...parsedPreviousData])
-          );
-      }
-      
-     
+    if (isSpellExist()) {
+      //pass
+    } else {
+      localStorage.setItem(
+        "MyBooks",
+        JSON.stringify([spellSelected, ...parsedPreviousData])
+      );
+    }
   }
 
   return (
@@ -55,26 +53,59 @@ function SpellResults({ showSpells }) {
           >
             <Modal.Header closeButton>
               <Modal.Title id="contained-modal-title-vcenter">
-                Modal heading
+                {spell.name}
               </Modal.Title>
             </Modal.Header>
             <Modal.Body>
-              <h4>Centered Modal</h4>
-              <p>{spell.casting_time}</p>
+              <p>
+                <b>Spell Type:</b> {spell.level}
+              </p>
+              <p>
+                <b>Range:</b> {spell.range}
+              </p>
+              <p>
+                <b>Ritual:</b> {spell.ritual}
+              </p>
+              <p>
+                <b>Duration:</b> {spell.duration}
+              </p>
+              <p>
+                <b>Concentration:</b> {spell.concentration}
+              </p>
+              <p>
+                <b>Casting Time:</b> {spell.casting_time}
+              </p>
+              <p>
+                <b>Class:</b> {spell.dnd_class}
+              </p>
+              <p>
+                <b>Archtype:</b> {spell.archetype}
+              </p>
+              <p>
+                <b>On Higher Levels:</b> {spell.higher_level}
+              </p>
+              <p>
+                <b>PHB:</b> {spell.page}
+              </p>
             </Modal.Body>
             <Modal.Footer>
               <Button onClick={onCloseHandler}>Close</Button>
             </Modal.Footer>
           </Modal>
-          <a onClick={onClickHandler}>
-            <h1>{spell.name}</h1>
-          </a>
 
-          <h3>{spell.desc}</h3>
-          <button onClick={() => addToSpellBook(spell)}>
-            {" "}
-            Add to Spellbook{" "}
-          </button>
+          <a onClick={onClickHandler}>
+            <p>
+              <h1>{spell.name}</h1>
+            </p>
+          </a>
+          <p>{spell.desc}</p>
+
+          <p>
+            <button onClick={() => addToSpellBook(spell)}>
+              {" "}
+              Add to Spellbook{" "}
+            </button>
+          </p>
         </div>
       ))}
     </div>
