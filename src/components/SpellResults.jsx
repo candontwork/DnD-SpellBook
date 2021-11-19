@@ -1,32 +1,25 @@
 import React, { useState } from "react";
 
-import Box from "@mui/material/Box";
-import Typography from "@mui/material/Typography";
-import Modal from "@mui/material/Modal";
+import { Redirect } from "react-router";
+import CustomModal from "./CustomModal";
 // import Button from "@mui/material/Button";
-
-const style = {
-  position: "absolute",
-  top: "50%",
-  left: "50%",
-  transform: "translate(-50%, -50%)",
-  width: 400,
-  bgcolor: "background.paper",
-  border: "2px solid #000",
-  boxShadow: 24,
-  p: 4,
-};
 
 function SpellResults({ showSpells }) {
   console.log("this is", showSpells);
   const [open, setOpen] = useState(false);
+  const[selectedSpell, setSelectedSpell] = useState(null);
 
-  function handleOpen() {
+  function handleOpen(spell) {
+    console.log("this is", spell);
+    setSelectedSpell(spell);
+    console.log("this is", selectedSpell);
     setOpen(true);
   }
 
   function handleClose() {
-    setOpen(false);
+     setOpen(false);
+    setSelectedSpell(null);
+   
   }
 
   function addToSpellBook(spellSelected) {
@@ -56,71 +49,34 @@ function SpellResults({ showSpells }) {
   }
 
   return (
-    <div>
-      {showSpells.map((spell) => (
-        <div>
-          <Modal
-            open={open}
-            onClose={handleClose}
-            aria-labelledby="modal-modal-title"
-            aria-describedby="modal-modal-description"
-          >
-            <Box sx={style}>
-              <Typography id="modal-modal-title" variant="h6" component="h2">
-                {spell.name}
-              </Typography>
-              <Typography id="modal-modal-description" sx={{ mt: 2 }}>
-                <p>
-                  <b>Spell Type:</b> {spell.level}
-                </p>
-                <p>
-                  <b>Range:</b> {spell.range}
-                </p>
-                <p>
-                  <b>Ritual:</b> {spell.ritual}
-                </p>
-                <p>
-                  <b>Duration:</b> {spell.duration}
-                </p>
-                <p>
-                  <b>Concentration:</b> {spell.concentration}
-                </p>
-                <p>
-                  <b>Casting Time:</b> {spell.casting_time}
-                </p>
-                <p>
-                  <b>Class:</b> {spell.dnd_class}
-                </p>
-                <p>
-                  <b>Archtype:</b> {spell.archetype}
-                </p>
-                <p>
-                  <b>On Higher Levels:</b> {spell.higher_level}
-                </p>
-                <p>
-                  <b>PHB:</b> {spell.page}
-                </p>
-              </Typography>
-            </Box>
-          </Modal>
-          <div className = 'Box' >
-            <a onClick={handleOpen}>
-              <p>
-                <h1>{spell.name}</h1>
-              </p>
-            </a>
-            <p>{spell.desc}</p>
+    <>
+      {showSpells ? (
+        <>
+          {showSpells.map((spell, id) => (
+            <div key={id}>
+              <div className="Box" key={id}>
+                <a onClick={() => handleOpen(spell)}>
+                  <p>
+                    <h1>{spell.name}</h1>
+                  </p>
+                </a>
+                <p>{spell.desc}</p>
 
-            <p>
-              <button onClick={() => addToSpellBook(spell)}>
-                {" "}
-                Add to Spellbook{" "}
-              </button>
-            </p>
+                <p>
+                  <button onClick={() => addToSpellBook(spell)}>
+                    {" "}
+                    Add to Spellbook{" "}
+                  </button>
+                </p>
+              </div>
             </div>
-        </div>
-      ))}
-    </div>
+          ))}
+          <CustomModal open={open} handleClose={handleClose} selectedSpell={selectedSpell}/>
+        </>
+      ) : (
+        <Redirect to="/" />
+      )}
+    </>
   );
 }
 
