@@ -1,27 +1,18 @@
 import React, { useState, useEffect } from "react";
 
-import Box from "@mui/material/Box";
-import Typography from "@mui/material/Typography";
-import Modal from "@mui/material/Modal";
+import CustomModal from "./CustomModal";
+
+// import Box from "@mui/material/Box";
+// import Typography from "@mui/material/Typography";
+// import Modal from "@mui/material/Modal";
 // import Button from "@mui/material/Button";
 
-import './Spellbook.css'
-
-const style = {
-  position: "absolute",
-  top: "50%",
-  left: "50%",
-  transform: "translate(-50%, -50%)",
-  width: 400,
-  bgcolor: "background.paper",
-  border: "2px solid #000",
-  boxShadow: 24,
-  p: 4,
-};
+import "./Spellbook.css";
 
 function SpellBook() {
   const [localStorageData, setLocalStorageData] = useState([]);
   const [open, setOpen] = useState(false);
+  const [selectedSpell, setSelectedSpell] = useState(null)
 
   useEffect(() => {
     getData();
@@ -35,70 +26,34 @@ function SpellBook() {
     console.log(localStorageData);
   }
 
-  function handleOpen() {
+  function handleOpen(spell) {
+    console.log("this is", spell);
+    setSelectedSpell(spell);
+    console.log("this is", selectedSpell);
     setOpen(true);
   }
 
   function handleClose() {
     setOpen(false);
+    setSelectedSpell(null);
   }
 
   return (
     <>
-      <h3>spell book</h3>
-      {localStorageData.map((data) => (
-        <div>
-          <Modal
-            open={open}
-            onClose={handleClose}
-            aria-labelledby="modal-modal-title"
-            aria-describedby="modal-modal-description"
-          >
-            <Box sx={style}>
-              <Typography id="modal-modal-title" variant="h6" component="h2">
-                {data.name}
-              </Typography>
-              <Typography id="modal-modal-description" sx={{ mt: 2 }}>
-                <p>
-                  <b>Spell Type:</b> {data.level}
-                </p>
-                <p>
-                  <b>Range:</b> {data.range}
-                </p>
-                <p>
-                  <b>Ritual:</b> {data.ritual}
-                </p>
-                <p>
-                  <b>Duration:</b> {data.duration}
-                </p>
-                <p>
-                  <b>Concentration:</b> {data.concentration}
-                </p>
-                <p>
-                  <b>Casting Time:</b> {data.casting_time}
-                </p>
-                <p>
-                  <b>Class:</b> {data.dnd_class}
-                </p>
-                <p>
-                  <b>Archtype:</b> {data.archetype}
-                </p>
-                <p>
-                  <b>On Higher Levels:</b> {data.higher_level}
-                </p>
-                <p>
-                  <b>PHB:</b> {data.page}
-                </p>
-              </Typography>
-            </Box>
-          </Modal>
-
-          <a onClick={handleOpen}>
-            <h4>{data.name}</h4>
-          </a>
-          <p>{data.desc}</p>
+      <h3>YOUR SPELLBOOK</h3>
+      {localStorageData.map((data, id) => (
+        <div key={id}>
+          <div className="Box" key={id}>
+            <a onClick={() => handleOpen(data)}>
+              <p>
+                <h1>{data.name}</h1>
+              </p>
+            </a>
+            <p>{data.desc}</p>
+          </div>
         </div>
       ))}
+        <CustomModal open={open} handleClose={handleClose} selectedSpell={selectedSpell}/>
     </>
   );
 }
