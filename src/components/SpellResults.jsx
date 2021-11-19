@@ -7,7 +7,7 @@ import CustomModal from "./CustomModal";
 function SpellResults({ showSpells }) {
   console.log("this is", showSpells);
   const [open, setOpen] = useState(false);
-  const[selectedSpell, setSelectedSpell] = useState(null);
+  const [selectedSpell, setSelectedSpell] = useState(null);
 
   function handleOpen(spell) {
     console.log("this is", spell);
@@ -17,9 +17,8 @@ function SpellResults({ showSpells }) {
   }
 
   function handleClose() {
-     setOpen(false);
+    setOpen(false);
     setSelectedSpell(null);
-   
   }
 
   function addToSpellBook(spellSelected) {
@@ -71,7 +70,11 @@ function SpellResults({ showSpells }) {
               </div>
             </div>
           ))}
-          <CustomModal open={open} handleClose={handleClose} selectedSpell={selectedSpell}/>
+          <CustomModal
+            open={open}
+            handleClose={handleClose}
+            selectedSpell={selectedSpell}
+          />
         </>
       ) : (
         <Redirect to="/" />

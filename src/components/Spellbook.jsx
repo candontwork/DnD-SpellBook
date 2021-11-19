@@ -2,17 +2,12 @@ import React, { useState, useEffect } from "react";
 
 import CustomModal from "./CustomModal";
 
-// import Box from "@mui/material/Box";
-// import Typography from "@mui/material/Typography";
-// import Modal from "@mui/material/Modal";
-// import Button from "@mui/material/Button";
-
 import "./Spellbook.css";
 
 function SpellBook() {
   const [localStorageData, setLocalStorageData] = useState([]);
   const [open, setOpen] = useState(false);
-  const [selectedSpell, setSelectedSpell] = useState(null)
+  const [selectedSpell, setSelectedSpell] = useState(null);
 
   useEffect(() => {
     getData();
@@ -53,7 +48,11 @@ function SpellBook() {
           </div>
         </div>
       ))}
-        <CustomModal open={open} handleClose={handleClose} selectedSpell={selectedSpell}/>
+      <CustomModal
+        open={open}
+        handleClose={handleClose}
+        selectedSpell={selectedSpell}
+      />
     </>
   );
 }
