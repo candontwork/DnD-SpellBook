@@ -60,7 +60,7 @@ function SpellResults({ showSpells }) {
                 </a>
                 <p className = 'desc'>{spell.desc}</p>
 
-                  <button onClick={() => addToSpellBook(spell)}>
+                  <button className = 'searchbutton' onClick={() => addToSpellBook(spell)}>
                     {" "}
                     Add to Spellbook{" "}
                   </button>

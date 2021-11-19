@@ -33,16 +33,16 @@ function SpellBook() {
 
   return (
     <>
-      <h3>YOUR SPELLBOOK</h3>
+      <h3 className = 'book'>YOUR SPELLBOOK</h3>
       {localStorageData.map((data, id) => (
         <div key={id}>
           <div className="Box" key={id}>
             <a onClick={() => handleOpen(data)}>
               <p>
-                <h1>{data.name}</h1>
+                <h1 className = 'spellname'>{data.name}</h1>
               </p>
             </a>
-            <p>{data.desc}</p>
+            <p className = 'spelldesc'>{data.desc}</p>
           </div>
         </div>
       ))}
