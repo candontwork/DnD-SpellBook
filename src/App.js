@@ -3,7 +3,6 @@ import { Route, Switch, Redirect } from "react-router-dom"
 import { ThemeProvider } from "@mui/material/styles"
 import theme_custom from './Theme';
 
-import SpellSearch from './components/SpellSearch';
 import SpellBook from './components/Spellbook';
 import Home from './components/Home';
 import NavBar from './components/NavBar';
@@ -16,24 +15,24 @@ function App() {
   const [displayResult, setDisplayResult] = useState("")
 
   return (
-    <ThemeProvider theme = {theme_custom}>
-        <NavBar />
-        <Switch>
-          <Route exact path='/'>
-            <Home />
-            <SpellSearch setDisplayResult={setDisplayResult} />
-          </Route>
+    <ThemeProvider theme={theme_custom}>
+      <NavBar />
+      <Switch>
+        <Route exact path='/'>
+          <Home setDisplayResult={setDisplayResult} />
 
-          <Route path='/SpellResults' >
-            <SpellResults showSpells={displayResult} />
-          </Route>
+        </Route>
 
-          <Route path='/SpellBook'>
-            <SpellBook />
-          </Route>
+        <Route path='/SpellResults' >
+          <SpellResults showSpells={displayResult} />
+        </Route>
 
-          <Redirect to='/' />
-        </Switch>
+        <Route path='/SpellBook'>
+          <SpellBook />
+        </Route>
+
+        <Redirect to='/' />
+      </Switch>
     </ThemeProvider>
   );
 }
