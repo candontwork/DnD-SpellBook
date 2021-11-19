@@ -1,7 +1,8 @@
 import React, { useState } from 'react';
 import { Route, Switch, Redirect } from "react-router-dom"
-import { ThemeProvider } from "@mui/material/styles"
-import theme_custom from './Theme';
+// import { ThemeProvider } from "@mui/material/styles"
+// import theme_custom from './Theme';
+// import CssBaseline from '@material-ui/core/CssBaseline'
 
 import SpellBook from './components/Spellbook';
 import Home from './components/Home';
@@ -15,7 +16,9 @@ function App() {
   const [displayResult, setDisplayResult] = useState("")
 
   return (
-    <ThemeProvider theme={theme_custom}>
+    <>
+    {/* <ThemeProvider theme={theme_custom}> */}
+       {/* <CssBaseline /> */}
       <NavBar />
       <Switch>
         <Route exact path='/'>
@@ -33,7 +36,8 @@ function App() {
 
         <Redirect to='/' />
       </Switch>
-    </ThemeProvider>
+    {/* </ThemeProvider> */}
+    </>
   );
 }
 

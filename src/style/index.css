@@ -1,0 +1,143 @@
+@import url("https://fonts.googleapis.com/css2?family=Caveat:wght@400;500;600;700&family=Oswald:wght@200;300;400;500;600;700&display=swap");
+
+/* General tag/ remove default style */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  background-color: #bfb1b1;
+  color: rgba(0, 0, 0, 0.87);
+  font-family: "Oswald", sans-serif;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+/* Navbar */
+.navbar {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  align-items: flex-start;
+  justify-content: flex-start;
+  padding: 1rem;
+  background-color: #230007;
+}
+
+.links {
+  /* border:2px solid red; */
+  color: #c98986;
+  width: 90px;
+  font-size: 30px;
+  font-weight: 200;
+}
+
+.links:hover {
+  color: rgb(211, 160, 158);
+}
+
+.title {
+  font-size: 80px;
+  font-weight: 700;
+  text-align: center;
+  margin-top: 90px;
+  font-style: oblique;
+  /* border:2px solid red; */
+}
+
+.tagline {
+  font-size: 30px;
+  font-weight: 200;
+  font-style: italic;
+  text-align: center;
+  margin-top: 5px;
+  /* border:2px solid red; */
+}
+
+form {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  align-items: center;
+  justify-content: center;
+  padding: 1rem;
+  margin-top: 30px;
+}
+
+input {
+  font-size: 25px;
+}
+
+button {
+  font-size: 25px;
+}
+
+.result {
+  /* border:2px solid red; */
+  margin: 15px;
+  flex-direction: column;
+  flex-wrap: nowrap;
+  justify-content: center;
+  align-items: center;
+  align-content: center;
+}
+
+.Box {
+  /* border:2px solid red; */
+  margin: 35px;
+  border-radius: 25px;
+  background-color: #fff;
+  padding: 20px 10px 30px 10px;
+}
+
+.name {
+  /* border:2px solid red; */
+  color: rgba(0, 0, 0, 0.87);
+  font-family: "Caveat", cursive;
+  font-size: 40px;
+  padding-left: 10px;
+}
+.desc {
+  /* border:2px solid red; */
+  color: #a40606;
+  font-size: 20px;
+  padding: 10px 10px 10px 10px;
+}
+.searchbutton {
+  /* border:2px solid red; */
+  font-size: 25px;
+  font-family: "Caveat", cursive;
+  font-weight: 700;
+  color: #c98986;
+  background-color: #230007;
+  float: right;
+  border-radius: 8px;
+  padding: 5px;
+}
+
+.book {
+  /* border:2px solid red; */
+  font-family: "Oswald", sans-serif;
+  text-align: center;
+  font-size: 50px;
+  font-weight: 700;
+  text-align: center;
+  margin-top: 10px;
+}
+
+.spellname {
+  color: #a40606;
+  font-family: "Caveat", cursive;
+  font-size: 40px;
+  padding-left: 10px;
+}
+
+.spelldesc {
+  font-size: 20px;
+  padding: 10px 10px 10px 10px;
+}
