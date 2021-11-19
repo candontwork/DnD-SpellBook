@@ -50,32 +50,29 @@ function SpellResults({ showSpells }) {
   return (
     <>
       {showSpells ? (
-        <>
+        <div className = 'result'>
           {showSpells.map((spell, id) => (
-            <div key={id}>
-              <div className="Box" key={id}>
+            <div  className="Box" key={id}>
+              {/* <div key={id}> */}
                 <a onClick={() => handleOpen(spell)}>
-                  <p>
-                    <h1>{spell.name}</h1>
-                  </p>
+    
+                    <h1 className= 'name'>{spell.name}</h1>
                 </a>
-                <p>{spell.desc}</p>
+                <p className = 'desc'>{spell.desc}</p>
 
-                <p>
                   <button onClick={() => addToSpellBook(spell)}>
                     {" "}
                     Add to Spellbook{" "}
                   </button>
-                </p>
               </div>
-            </div>
+            // </div>
           ))}
           <CustomModal
             open={open}
             handleClose={handleClose}
             selectedSpell={selectedSpell}
           />
-        </>
+        </div>
       ) : (
         <Redirect to="/" />
       )}

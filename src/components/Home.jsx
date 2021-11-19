@@ -4,8 +4,8 @@ import SpellSearch from "./SpellSearch"
 function Home({setDisplayResult}) {
     return (
         <>
-            <h1>SpellBook</h1>
-            <h4>Your one stop source for spells</h4>
+            <h1 className = 'title'>SpellBook</h1>
+            <h4 className = 'tagline'>Your one stop source for spells</h4>
             <SpellSearch setDisplayResult={setDisplayResult} />
         </>
     )

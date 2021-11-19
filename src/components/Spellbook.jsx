@@ -2,8 +2,6 @@ import React, { useState, useEffect } from "react";
 
 import CustomModal from "./CustomModal";
 
-import "./Spellbook.css";
-
 function SpellBook() {
   const [localStorageData, setLocalStorageData] = useState([]);
   const [open, setOpen] = useState(false);

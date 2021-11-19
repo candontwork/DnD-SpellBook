@@ -43,7 +43,7 @@ function SpellSearch({ setDisplayResult }) {
   console.log("returnedSearch:", returnedSearch);
 
   return (
-    <div className="SearchBar">
+    <div>
       <form>
         <input
           type="text"

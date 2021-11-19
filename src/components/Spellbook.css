@@ -1,8 +1,0 @@
-.box {
-    inline-size: min-content;  
-    word-wrap: break-word;  
-    width: 250px; 
-    border-style: solid; 
-    padding-left: 20px;
-    border-top: red;
-}
